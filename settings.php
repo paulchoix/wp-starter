@@ -11,7 +11,7 @@ function init()
     global $OPTIONS_GROUP, $OPTIONS_NAME, $OPTIONS_PAGE;
     register_setting( $OPTIONS_GROUP, $OPTIONS_NAME, ['type' => 'object']);
 
-    add_settings_section(
+    /*add_settings_section(
         'starter_section',
         __( 'Starter Section', 'starter-theme' ),
         __NAMESPACE__ . '\\starter_section_callback',
@@ -24,11 +24,11 @@ function init()
         $OPTIONS_PAGE,
         'section',
         ['label_for' => 'starter_field']
-    );
+    );*/
 }
 add_action( 'admin_init', __NAMESPACE__ . '\\init' );
 
-function starter_section_callback()
+/*function starter_section_callback()
 {
     _e( '<p>Description for the starter section.</p>' );
 }
@@ -40,7 +40,7 @@ function starter_field_callback( $args )
     ?>
     <input type="text" name="<?php echo $OPTIONS_NAME; ?>[<?php echo esc_attr( $args['label_for'] ); ?>]" value="<?php echo isset( $options[$args['label_for']] ) ? esc_attr( $options[$args['label_for']] ) : ''; ?>"></input>
     <?php
-}
+}*/
 
 // Settings Page
 function page_html() {
