@@ -18,8 +18,6 @@ namespace StarterTheme\Header;
   <link rel="apple-touch-icon" href="icon.png" />
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="assets/css/style.css" />
-
   <?php wp_head(); ?>
 </head>
 

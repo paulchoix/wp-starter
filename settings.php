@@ -2,13 +2,13 @@
 namespace StarterTheme\Settings;
 
 $STARTER_THEME_OPTIONS_GROUP = 'starter_theme';
-$STARTER_THEME_OPTIONS_NAME = 'starter_theme_options';
 $STARTER_THEME_OPTIONS_PAGE = 'starter_theme';
+$STARTER_THEME_OPTIONS_NAME = 'starter_theme_options';
 
 // Register configuration options
 function init()
 {
-    global $STARTER_THEME_OPTIONS_GROUP, $STARTER_THEME_OPTIONS_NAME, $STARTER_THEME_OPTIONS_PAGE;
+    global $STARTER_THEME_OPTIONS_GROUP, $STARTER_THEME_OPTIONS_PAGE, $STARTER_THEME_OPTIONS_NAME;
     register_setting( $STARTER_THEME_OPTIONS_GROUP, $STARTER_THEME_OPTIONS_NAME, ['type' => 'object']);
 
     /*add_settings_section(
