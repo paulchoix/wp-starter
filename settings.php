@@ -13,13 +13,13 @@ function init()
 
     /*add_settings_section(
         'starter_section',
-        __( 'Starter Section', 'starter-theme' ),
+        __( 'Starter Theme Section', 'starter-theme' ),
         __NAMESPACE__ . '\\starter_section_callback',
         $STARTER_THEME_OPTIONS_PAGE
     );
     add_settings_field(
         'starter_field',
-        __( 'Starter Field', 'starter-theme' ),
+        __( 'Starter Theme Field', 'starter-theme' ),
         __NAMESPACE__ . '\\starter_field_callback',
         $STARTER_THEME_OPTIONS_PAGE,
         'section',
@@ -30,7 +30,7 @@ add_action( 'admin_init', __NAMESPACE__ . '\\init' );
 
 /*function starter_section_callback()
 {
-    _e( '<p>Description for the starter section.</p>', 'starter-theme' );
+    _e( '<p>Description for the starter theme section.</p>', 'starter-theme' );
 }
 
 function starter_field_callback( $args )
