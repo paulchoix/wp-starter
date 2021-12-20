@@ -1,7 +1,5 @@
 # WP Starter Theme
 
-Version 1.0.0
-
 Just another Wordpress Starter Theme using namespaces.
 
 ## Installation
