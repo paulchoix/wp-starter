@@ -1,12 +1,12 @@
 // Class for handling API requests
 export class API_Request {
-  constructor(nonce) {
+  constructor(nonce, type = 'application/json') {
     this.base_params = {
       headers: {
-        'Content-Type': 'application/json',
         'X-WP-Nonce': nonce,
       },
     }
+    if (type) this.base_params.headers['Content-Type'] = type
     this.script = document.getElementById('starter-theme-js') // See hook in Functions
     this.api_endpoint = this.script.dataset.api
   }

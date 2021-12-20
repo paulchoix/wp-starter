@@ -43,7 +43,8 @@ function starter_field_callback( $args )
 }*/
 
 // Settings Page
-function page_html() {
+function page_html()
+{
     global $STARTER_THEME_OPTIONS_GROUP, $STARTER_THEME_OPTIONS_PAGE;
 
     if ( !current_user_can( 'manage_options' ) ) return;
@@ -62,7 +63,8 @@ function page_html() {
     <?php
 }
 
-function page() {
+function page()
+{
     global $STARTER_THEME_OPTIONS_PAGE;
 
     add_menu_page(

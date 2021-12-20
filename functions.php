@@ -8,8 +8,8 @@ require_once( 'include/helpers.php' );
 require_once( 'include/widgets.php' );
 
 
-$API_ENDPOINT = 'starter-theme';
-$API_VERSION = 1;
+$STARTER_THEME_API_ENDPOINT = 'starter-theme';
+$STARTER_THEME_API_VERSION = 1;
 
 /**
  * Styles & Scripts
@@ -35,23 +35,24 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts' );
 // From: https://stackoverflow.com/questions/58931144/enqueue-javascript-with-type-module
 // Adds module tag and API endpoint to starter-theme-js script
 function script_modify( $tag, $handle, $src )  {
-    if ( $handle !== 'starter-theme-js' ) {
+    if ( $handle !== 'starter-theme-js' ) { // Add additional handles if necessary
         return $tag;
     }
 
-    global $API_ENDPOINT, $API_VERSION;
-    $api_endpoint = get_home_url() . '/wp-json/' . $API_ENDPOINT . '/v' . $API_VERSION;
-    $tag = '<script id="starter-theme-js" type="module" data-api="' . $api_endpoint . '" src="' . esc_url( $src ) . '"></script>';
+    global $STARTER_THEME_API_ENDPOINT, $STARTER_THEME_API_VERSION;
+    $STARTER_THEME_api_endpoint = get_home_url() . '/wp-json/' . $STARTER_THEME_API_ENDPOINT . '/v' . $STARTER_THEME_API_VERSION;
+    $tag = sprintf( '<script id="%s" type="module" data-api="%s" src="%s"></script>', $handle, $STARTER_THEME_API_ENDPOINT, esc_url( $src ) );
     return $tag;
 }
 
 // Register API routes
 add_action('rest_api_init', function () {
-    global $API_ENDPOINT, $API_VERSION;
+    global $STARTER_THEME_API_ENDPOINT, $STARTER_THEME_API_VERSION;
 
-    /*register_rest_route( $API_ENDPOINT . '/v' . $API_VERSION, 'resource', array(
+    /*register_rest_route( $STARTER_THEME_API_ENDPOINT . '/v' . $STARTER_THEME_API_VERSION, 'resource', array(
       'methods' => 'GET',
       'callback' => 'function',
+      'permission_callback' => '__return_true', // This makes the endpoint public
     ));*/
 });
 
