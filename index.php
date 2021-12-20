@@ -1,5 +1,5 @@
 <?php
-namespace StarterTheme\Index;
+namespace Starter_Theme\Index;
 ?>
 
 <?php get_header(); ?>

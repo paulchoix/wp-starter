@@ -1,5 +1,5 @@
 <?php
-namespace StarterTheme\Page_404;
+namespace Starter_Theme\Page_404;
 ?>
 
 <?php get_header(); ?>

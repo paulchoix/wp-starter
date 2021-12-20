@@ -1,5 +1,5 @@
 <?php
-namespace StarterTheme\Page;
+namespace Starter_Theme\Page;
 
 /**
  * Template Post Type: page

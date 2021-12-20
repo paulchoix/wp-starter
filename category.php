@@ -1,5 +1,5 @@
 <?php
-namespace StarterTheme\Category;
+namespace Starter_Theme\Category;
 ?>
 
 <?php get_header(); ?>

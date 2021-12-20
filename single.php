@@ -1,5 +1,5 @@
 <?php
-namespace StarterTheme\Single;
+namespace Starter_Theme\Single;
 
 /**
  * Template Post Type: post

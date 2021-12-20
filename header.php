@@ -1,5 +1,5 @@
 <?php
-namespace StarterTheme\Header;
+namespace Starter_Theme\Header;
 ?>
 
 <!DOCTYPE html>

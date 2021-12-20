@@ -1,5 +1,5 @@
 <?php
-namespace StarterTheme\Settings;
+namespace Starter_Theme\Settings;
 
 $STARTER_THEME_OPTIONS_GROUP = 'starter_theme';
 $STARTER_THEME_OPTIONS_PAGE = 'starter_theme';

@@ -1,5 +1,5 @@
 <?php
-namespace StarterTheme\Sidebar\Example;
+namespace Starter_Theme\Sidebar\Example;
 ?>
 
 <div id="sidebar-example" class="sidebar-example">

@@ -1,5 +1,5 @@
 <?php
-namespace StarterTheme\Footer;
+namespace Starter_Theme\Footer;
 ?>
 
 </div>

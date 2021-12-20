@@ -1,8 +1,8 @@
 <?php
-namespace StarterTheme;
+namespace Starter_Theme;
 
 /**
  * Store all constants within a single object
  */
 
- $STARTERTHEME_CONSTANTS = new \stdClass;
+ $STARTER_THEME_CONSTANTS = new \stdClass;

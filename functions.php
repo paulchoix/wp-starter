@@ -1,5 +1,5 @@
 <?php
-namespace StarterTheme;
+namespace Starter_Theme;
 
 require_once( 'constants.php' );
 require_once( 'settings.php' );

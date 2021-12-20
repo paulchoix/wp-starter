@@ -1,2 +1,2 @@
 <?php
-namespace StarterTheme\Helpers;
+namespace Starter_Theme\Helpers;

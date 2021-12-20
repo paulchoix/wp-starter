@@ -1,2 +1,2 @@
 <?php
-namespace StarterTheme\Widgets;
+namespace Starter_Theme\Widgets;
