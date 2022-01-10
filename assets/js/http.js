@@ -24,12 +24,17 @@ export class API_Request {
     return true
   }
 
-  async get(resource) {
+  async get(resource, query_params = {}) {
     const params = {
       method: 'GET',
       ...this.base_params,
     }
-    const request = await fetch(`${this.api_endpoint}/${resource}`, params)
+    const query_params_string = new URLSearchParams()
+    if (query_params) for (var [key, value] of Object.entries(query_params)) {
+      query_params_string.set(key, value)
+    }
+    const string = query_params ? `${this.api_endpoint}/${resource}?${query_params_string.toString()}` : `${this.api_endpoint}/${resource}`
+    const request = await fetch(string, params)
     return request
   }
 
