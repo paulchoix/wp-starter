@@ -1,11 +1,10 @@
 <?php
 namespace Starter_Theme;
 
-require_once( 'constants.php' );
-require_once( 'settings.php' );
+// require_once everything in the include folder
+foreach ( glob( __DIR__ . '/include/*.php' ) as $filename ) require_once $filename;
 
-require_once( 'include/helpers.php' );
-require_once( 'include/widgets.php' );
+use Starter_Theme\Constants;
 
 
 /**
@@ -35,15 +34,24 @@ function script_modify( $tag, $handle, $src )  {
     if ( !in_array( $handle, [ 'starter-theme-js' ] ) ) { // Add additional handles if necessary
         return $tag;
     }
+    
+    $CONSTANTS = new \Starter_Theme\Constants();
 
-    $api_endpoint = get_home_url() . '/wp-json/' . \Starter_Theme\Constants::$API_ROOT;
+    $api_endpoint = get_home_url() . '/wp-json/' . $CONSTANTS->API_ROOT;
     $tag = sprintf( '<script id="%s" type="module" data-api="%s" src="%s"></script>', $handle, $api_endpoint, esc_url( $src ) );
     return $tag;
 }
 
+// Add a theme specific class to the body class to namespace CSS. Remember to use nesting in SASS!
+add_filter( 'body_class', function( $classes ) {
+    return array_merge( $classes, ['starter-theme'] );
+} );
+
 // Register API routes
 add_action('rest_api_init', function () {
-    /*register_rest_route( \Starter_Theme\Constants::$API_ROOT, 'resource', array(
+    $CONSTANTS = new \Starter_Theme\Constants();
+
+    /*register_rest_route( $CONSTANTS->API_ROOT, 'resource', array(
       'methods' => 'GET',
       'callback' => 'function',
       'permission_callback' => '__return_true', // This makes the endpoint public
