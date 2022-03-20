@@ -7,7 +7,6 @@ Just another Wordpress theme using namespaces.
 After installation, use the search and replace function (case sensitive) to change the following:
 
 - starter-theme -> your theme's text domain (hyphens only)
-- STARTER_THEME -> your theme's name in uppercase with underscores and hyphens // [TODO] Only used for constants, switch to class encapsulation
 - starter_theme -> your theme's name in lowercase with underscores and hyphens
 - Starter Theme -> your theme's name
 - Starter_Theme -> your theme's namespace
