@@ -12,6 +12,10 @@ use Starter_Theme\Constants;
  * Styles & Scripts
  */
 
+// See: https://developer.wordpress.org/reference/functions/add_theme_support/
+add_theme_support('custom-thumbnails');
+add_theme_support('custom-logo');
+
 function enqueue_scripts()
 {
     $theme_version = Constants::$THEME_VERSION;
