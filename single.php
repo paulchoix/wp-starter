@@ -1,4 +1,5 @@
 <?php
+
 namespace Starter_Theme\Single;
 
 /**
@@ -9,7 +10,7 @@ namespace Starter_Theme\Single;
 
 <?php get_header(); ?>
 
-<main class="main">
+<main id="layout-main">
 
 </main>
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace Starter_Theme\Search;
 
 $search_terms = $_GET['s'];
@@ -7,7 +8,7 @@ $search_terms = $_GET['s'];
 
 <?php get_header(); ?>
 
-<main class="main">
+<main id="layout-main">
 
 </main>
 

@@ -1,10 +1,11 @@
 <?php
+
 namespace Starter_Theme\Category;
 ?>
 
 <?php get_header(); ?>
 
-<main class="main">
+<main id="layout-main">
 
 </main>
 

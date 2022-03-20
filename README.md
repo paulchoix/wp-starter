@@ -1,6 +1,6 @@
-# WP Starter Theme
+# Starter Theme
 
-Just another Wordpress Starter Theme using namespaces.
+Just another Wordpress theme using namespaces.
 
 ## Installation
 

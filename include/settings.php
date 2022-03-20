@@ -1,4 +1,5 @@
 <?php
+
 namespace Starter_Theme\Settings;
 
 use \Starter_Theme\Constants;
@@ -6,7 +7,7 @@ use \Starter_Theme\Constants;
 // Register configuration options
 function init()
 {
-    register_setting( Constants::$OPTIONS_GROUP, Constants::$OPTIONS_NAME, ['type' => 'object']);
+    register_setting(Constants::$OPTIONS_GROUP, Constants::$OPTIONS_NAME, ['type' => 'object']);
 
     /*add_settings_section(
         'starter_section',
@@ -23,7 +24,7 @@ function init()
         ['label_for' => 'starter_field']
     );*/
 }
-add_action( 'admin_init', __NAMESPACE__ . '\\init' );
+add_action('admin_init', __NAMESPACE__ . '\\init');
 
 /*function starter_section_callback()
 {
@@ -42,32 +43,32 @@ function starter_field_callback( $args )
 function page_html()
 {
 
-    if ( !current_user_can( 'manage_options' ) ) return;
+    if (!current_user_can('manage_options')) return;
 
-    ?>
+?>
     <div class="wrap">
-        <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+        <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
         <form action="options.php" method="post">
             <?php
-            settings_fields( Constants::$OPTIONS_GROUP );
-            do_settings_sections( Constants::$OPTIONS_PAGE );
-            submit_button( __( 'Save', 'starter-theme' ) );
+            settings_fields(Constants::$OPTIONS_GROUP);
+            do_settings_sections(Constants::$OPTIONS_PAGE);
+            submit_button(__('Save', 'starter-theme'));
             ?>
         </form>
     </div>
-    <?php
+<?php
 }
 
 function page()
 {
 
     add_menu_page(
-        __( 'Starter Theme', 'starter-theme' ),
-        __( 'Starter Theme', 'starter-theme' ),
+        __('Starter Theme', 'starter-theme'),
+        __('Starter Theme', 'starter-theme'),
         'manage_options',
         Constants::$OPTIONS_PAGE,
         __NAMESPACE__ . '\\page_html',
         'dashicons-admin-settings' // For more Dashicons: https://developer.wordpress.org/resource/dashicons/
     );
 }
-add_action( 'admin_menu', __NAMESPACE__ . '\\page' );
+add_action('admin_menu', __NAMESPACE__ . '\\page');

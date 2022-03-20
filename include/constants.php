@@ -1,11 +1,13 @@
 <?php
+
 namespace Starter_Theme;
 
 /**
  * Store all constants within a single class
  */
 
- class Constants {
+class Constants
+{
     // Use public static variables to access them without instantiating the Constants class
 
     /**
@@ -30,8 +32,8 @@ namespace Starter_Theme;
     public static $API_ENDPOINT = 'starter-theme';
     public $API_ROOT;
 
-    function __construct( $version = 1 )
+    function __construct($version = 1)
     {
         $this->API_ROOT = $this::$API_ENDPOINT . '/v' . $version;
     }
- }
+}
