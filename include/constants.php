@@ -9,6 +9,10 @@ namespace Starter_Theme;
 class Constants
 {
     // Use public static variables to access them without instantiating the Constants class
+    /**
+     * Version
+     */
+    public static $THEME_VERSION = '1.0.0';
 
     /**
      * Settings

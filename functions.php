@@ -14,11 +14,13 @@ use Starter_Theme\Constants;
 
 function enqueue_scripts()
 {
+    $theme_version = Constants::$THEME_VERSION;
+
     // Theme CSS
-    wp_enqueue_style('starter-theme-css', get_stylesheet_uri());
+    wp_enqueue_style("starter-theme-{$theme_version}", get_stylesheet_uri());
 
     // Theme JS
-    wp_enqueue_script('starter-theme-js', get_template_directory_uri() . 'assets/js/main.js');
+    wp_enqueue_script("starter-theme-{$theme_version}", get_template_directory_uri() . '/assets/js/main.js');
 
     // Vendor CSS
 
@@ -33,7 +35,9 @@ add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts');
 // Adds module tag and API endpoint to starter-theme-js script
 function script_modify($tag, $handle, $src)
 {
-    if (!in_array($handle, ['starter-theme-js'])) { // Add additional handles if necessary
+    $theme_version = Constants::$THEME_VERSION;
+
+    if (!in_array($handle, ["starter-theme-{$theme_version}-js"])) { // Add additional handles if necessary
         return $tag;
     }
 
