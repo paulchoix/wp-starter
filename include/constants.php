@@ -12,7 +12,7 @@ class Constants
     /**
      * Version
      */
-    public static $THEME_VERSION = '1.0.0';
+    public static $VERSION = '1.0.0';
 
     /**
      * Settings

@@ -16,15 +16,16 @@ use Starter_Theme\Constants;
 add_theme_support('custom-thumbnails');
 add_theme_support('custom-logo');
 
+
 function enqueue_scripts()
 {
-    $theme_version = Constants::$THEME_VERSION;
+    $version = Constants::$VERSION;
 
     // Theme CSS
-    wp_enqueue_style("starter-theme-{$theme_version}", get_stylesheet_uri());
+    wp_enqueue_style("starter-theme-{$version}", get_stylesheet_uri());
 
     // Theme JS
-    wp_enqueue_script("starter-theme-{$theme_version}", get_template_directory_uri() . '/assets/js/main.js');
+    wp_enqueue_script("starter-theme-{$version}", get_template_directory_uri() . '/assets/js/main.js', ['wp-i18n']);
 
     // Vendor CSS
 
@@ -35,31 +36,41 @@ function enqueue_scripts()
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts');
 
+
+function enqueue_admin_scripts()
+{
+    //wp_enqueue_script( Constants::$SLUG . '-js-admin',  plugin_dir_url( __FILE__ ) . 'assets/js/admin.js' );         
+}
+add_action('admin_enqueue_scripts', __NAMESPACE__ . '\\enqueue_admin_scripts');
+
+
 // From: https://stackoverflow.com/questions/58931144/enqueue-javascript-with-type-module
 // Adds module tag and API endpoint to starter-theme-js script
 function script_modify($tag, $handle, $src)
 {
-    $theme_version = Constants::$THEME_VERSION;
+    $version = Constants::$VERSION;
 
-    if (!in_array($handle, ["starter-theme-{$theme_version}-js"])) { // Add additional handles if necessary
+    if (!in_array($handle, ["starter-theme-{$version}"])) { // Add additional handles if necessary
         return $tag;
     }
 
-    $CONSTANTS = new \Starter_Theme\Constants();
+    $CONSTANTS = new Constants();
 
     $api_endpoint = get_home_url() . '/wp-json/' . $CONSTANTS->API_ROOT;
     $tag = sprintf('<script id="%s" type="module" data-api="%s" src="%s"></script>', $handle, $api_endpoint, esc_url($src));
     return $tag;
 }
 
+
 // Add a theme specific class to the body class to namespace CSS. Remember to use nesting in SASS!
 add_filter('body_class', function ($classes) {
     return array_merge($classes, ['starter-theme']);
 });
 
+
 // Register API routes
 add_action('rest_api_init', function () {
-    $CONSTANTS = new \Starter_Theme\Constants();
+    $CONSTANTS = new Constants();
 
     /*register_rest_route( $CONSTANTS->API_ROOT, 'resource', array(
       'methods' => 'GET',
@@ -67,3 +78,11 @@ add_action('rest_api_init', function () {
       'permission_callback' => '__return_true', // This makes the endpoint public
     ));*/
 });
+
+
+// Load translation files
+function load_textdomain()
+{
+    load_plugin_textdomain('starter-theme', false, dirname(plugin_basename(__FILE__)) . '/languages');
+}
+add_action('init', __NAMESPACE__ . '\\load_textdomain');
