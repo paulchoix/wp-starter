@@ -28,7 +28,7 @@ function init()
 
 /*function starter_section_callback()
 {
-    echo sprintf( '<p>%s</p>, __( '<p>Description for the starter theme section.</p>', 'starter-theme' ) );
+    echo sprintf( '<p>%s</p>', __( '<p>Description for the starter theme section.</p>', 'starter-theme' ) );
 }
 
 function starter_field_callback( $args )
