@@ -68,6 +68,45 @@ add_filter('body_class', function ($classes) {
 });
 
 
+// Custom login logo
+/*function login_logo()
+{
+    $directory = get_template_directory_uri();
+    echo <<<EOF
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url($directory/assets/img/logo.svg);
+            height: 65px;
+            width: 320px;
+            background-size: 320px 65px;
+            background-repeat: no-repeat;
+            padding-bottom: 30px;
+        }
+    </style>
+    EOF;
+?>
+<?php }
+add_action('login_enqueue_scripts', __NAMESPACE__ . '\\login_logo');*/
+
+
+// Change login redirect url
+/*add_filter('login_redirect', function ($login_url, $redirect, $force_reauth) {
+    return get_home_url();
+}, 10, 3);*/
+
+
+// Block access to admin page
+/*add_action('admin_init', function () {
+    $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : home_url('/');
+    global $current_user;
+    $user_roles = $current_user->roles;
+    $user_role = array_shift($user_roles);
+    if (!in_array($user_role, ['administrator', 'editor', 'author'])) {
+        exit(wp_redirect($redirect));
+    }
+}, 100);*/
+
+
 // Register API routes
 add_action('rest_api_init', function () {
     $CONSTANTS = new Constants();

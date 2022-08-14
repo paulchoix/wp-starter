@@ -17,9 +17,9 @@ class Constants
     /**
      * Settings
      */
-    public static $OPTIONS_GROUP = 'starter_theme';
-    public static $OPTIONS_PAGE = 'starter_theme';
-    public static $OPTIONS_NAME = 'starter_theme_options';
+    public static $SLUG = 'starter-theme';
+    public static $SNAKE = 'starter_theme';
+    public static $SETTINGS = 'starter_theme_options';
 
     /**
      * Permalinks
