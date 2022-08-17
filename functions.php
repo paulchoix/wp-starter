@@ -122,6 +122,6 @@ add_action('rest_api_init', function () {
 // Load translation files
 function load_textdomain()
 {
-    load_plugin_textdomain('starter-theme', false, dirname(plugin_basename(__FILE__)) . '/languages');
+    load_theme_textdomain('starter-theme', get_template_directory() . '/languages');
 }
-add_action('init', __NAMESPACE__ . '\\load_textdomain');
+add_action('after_setup_theme', __NAMESPACE__ . '\\load_textdomain');
